@@ -1,0 +1,46 @@
+@media (max-width: 1000px) {
+  .container {
+    width: 80vw;
+    margin: 50px auto;
+  }
+}
+
+@media (max-width: 800px) {
+  h1 {
+    text-align: center;
+  }
+
+  body {
+    background: url("../../images/bg-intro-mobile.png") center center/cover,
+      $red;
+  }
+
+  .container {
+    width: 90vw;
+    margin: 50px auto;
+    height: auto;
+    padding: 30px 10px;
+
+    .form-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+
+      .heading-section {
+        text-align: center;
+        h1 {
+          text-align: center;
+          font-size: 2.8rem;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

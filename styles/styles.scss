@@ -1,0 +1,205 @@
+@import "utilities/colors";
+@import "utilities/reset";
+@import "utilities/typography";
+
+body {
+  background: url("../images/bg-intro-desktop.png") center center/cover, $red;
+}
+
+@mixin error-message {
+  font-size: small;
+  color: $red;
+  text-align: right;
+  text-decoration: wavy;
+  font-style: italic;
+  margin-right: 0;
+  display: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  height: 80vh;
+
+  .form-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .heading-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+
+      h1 {
+        text-align: left;
+        display: block;
+        width: 100%;
+        font-size: 3.6rem;
+        line-height: 1;
+        margin-bottom: 1.4rem;
+      }
+
+      p {
+        line-height: 1.2;
+      }
+    }
+
+    .form-section {
+      flex: 1;
+
+      .header {
+        background: $blue-aacent;
+        color: #fff;
+        padding: 15px 10px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+        position: relative;
+        cursor: pointer;
+
+        & span:first-child {
+          font-weight: 700;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: $dark-blue;
+          opacity: 0.7;
+          top: 12%;
+          left: 0;
+          border-radius: 10px;
+          z-index: -1;
+        }
+      }
+
+      .form {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        position: relative;
+        padding: 30px 20px 30px 20px;
+        border-radius: 10px;
+
+        &::after {
+          background: #3e3c49;
+          height: 91%;
+          width: 92%;
+          content: "";
+          border-radius: 10px;
+          padding: 30px 20px 30px 20px;
+          position: absolute;
+          z-index: -2;
+          top: 0%;
+          opacity: 0.7;
+          left: 0;
+        }
+
+        & * {
+          width: 90%;
+          margin: 0 auto;
+        }
+
+        &-inputs {
+          position: relative;
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 5px;
+          }
+
+          .error-icon {
+            position: absolute;
+            top: 23%;
+            right: 2%;
+            z-index: 0;
+            width: 22px;
+            height: 22px;
+            display: none;
+
+            &-show {
+              display: block;
+            }
+          }
+        }
+
+        .fname-error-message,
+        .lname-error-message,
+        .email-error-message,
+        .password-error-message {
+          @include error-message();
+        }
+
+        &-inputs input {
+          border: 2px solid $grayish-blue;
+          width: 100%;
+          padding: 15px 5px;
+          font-size: 16px;
+          border-radius: 6px;
+          outline: none;
+        }
+
+        &-inputs input:focus {
+          border-radius: 6px;
+          border: 2px solid $dark-blue;
+        }
+
+        &-inputs input.error {
+          border: 2px solid $red;
+        }
+
+        .btn {
+          border: none;
+          padding: 15px 10px;
+          text-align: center;
+          background: $green;
+          color: #fff;
+          border-radius: 6px;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          color: #fff;
+          cursor: pointer;
+          position: relative;
+          font-weight: 700;
+          margin-bottom: 20px;
+          z-index: 10;
+
+          &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: $green;
+            border-radius: 6px;
+            opacity: 0.7;
+            top: 11%;
+            left: -0%;
+            z-index: -1;
+          }
+        }
+
+        .lead {
+          font-size: 0.7rem;
+          text-align: center;
+          font-weight: 400;
+
+          a {
+            text-decoration: none;
+            color: $red;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+@import "utilities/media";
